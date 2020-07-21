@@ -30,27 +30,28 @@ add.addEventListener('click', (event) => {
 })
 
 // TASK 4
-function erase(div) {
-    let btn = document.querySelector('.btn')
-    let enabled = true;
-    btn.addEventListener('click', () => {
-        enabled = !enabled
-        console.log(enabled)
-        detect()
-    })
-    function detect() {
-        if (!enabled) {
-            div.classList.add('erase')
-        }
-    }
+let btn = document.querySelectorAll('.btn')
 
+for (let i = 0; i < btn.length; i++) {
+    erase(btn[i])
 }
 
-let btn = document.querySelectorAll('.btn')
-let green = document.querySelectorAll('.green')
-    for (let i = 0; i < green.length; i++) {
-        erase(btn[i])
-        for (let j = 0; j < green.length; j++) {
-            
-        }
-    }
+function erase(div) {
+    div.addEventListener('click', () => {
+        div.closest('div').classList.add('erase')
+    })
+}
+
+// TASK 5
+let list = document.querySelectorAll('.list__item')
+for (let i = 0; i < list.length; i++) {
+    choose(list[i])
+}
+
+function choose(div) {
+    div.addEventListener('click', () => {
+        div.classList.toggle('blue')
+        console.log(div)
+    })
+}
+
